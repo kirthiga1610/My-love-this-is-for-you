@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Valentine ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: #800040;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+.card {
+  display: none;
+  background: white;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.card.active {
+  display: block;
+}
+
+.emoji {
+  font-size: 34px;
+}
+
+.photo {
+  width: 100%;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+
+button {
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e6004c;
+}
+
+.hearts {
+  position: fixed;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 24px;
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-110vh); opacity: 0;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💝 Happy Valentine’s Day 💝</h1>
+<div class="subtitle">
+  From <b>YOUR_NAME</b> to <b>PARTNER_NAME</b> ❤️
+</div>
+
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+</audio>
+
+<div class="card active">
+  <div class="emoji">😜❤️</div>
+  <img src="photo1.jpg" class="photo">
+  <p>I tried to act cool around you… but my heart refused 😄</p>
+  <button onclick="nextCard()">Next 💌</button>
+</div>
+
+<div class="card">
+  <div class="emoji">🥰📱</div>
+  <img src="photo2.jpg" class="photo">
+  <p>You are officially my favorite notification 💖</p>
+  <button onclick="nextCard()">Next 💖</button>
+</div>
+
+<div class="card">
+  <div class="emoji">😂💞</div>
+  <img src="photo3.jpg" class="photo">
+  <p>Life before you vs after you — totally worth it 😌</p>
+  <button onclick="nextCard()">Next 💘</button>
+</div>
+
+<div class="card">
+  <div class="emoji">💍💕</div>
+  <img src="photo4.jpg" class="photo">
+  <p>You’re my forever Valentine ❤️</p>
+  <button onclick="restart()">Read Again 🔁</button>
+</div>
+
+<div class="hearts">
+  <div class="heart" style="left:10%; animation-duration:6s;">❤️</div>
+  <div class="heart" style="left:30%; animation-duration:8s;">💖</div>
+  <div class="heart" style="left:50%; animation-duration:7s;">💘</div>
+  <div class="heart" style="left:70%; animation-duration:9s;">💕</div>
+  <div class="heart" style="left:90%; animation-duration:6s;">❤️</div>
+</div>
+
+<script>
+let index = 0;
+const cards = document.querySelectorAll('.card');
+
+function nextCard() {
+  cards[index].classList.remove('active');
+  index++;
+  if (index < cards.length) cards[index].classList.add('active');
+}
+
+function restart() {
+  cards[index].classList.remove('active');
+  index = 0;
+  cards[index].classList.add('active');
+}
+</script>
+
+</body>
+</html>
